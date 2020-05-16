@@ -1,4 +1,4 @@
-d3.csv("Data/5DowCompanies_DJIA.csv").then(function(data) {
+d3.csv("Data/DowStocksandDJIA_Data.csv").then(function(data) {
     console.log(data);
     var selector = [];
     for (i=0; i < data.length; i++) {
@@ -20,8 +20,8 @@ d3.csv("Data/5DowCompanies_DJIA.csv").then(function(data) {
     
     var dates = [];
     var closes = [];
-    var SMA30 = [];
-    var SMA100 = [];
+    var SMA50 = [];
+    var SMA200 = [];
     var buysig = [];
     var sellsig = [];
     var initial_selected = d3.select("#symbolselect").property("value");
@@ -31,16 +31,16 @@ d3.csv("Data/5DowCompanies_DJIA.csv").then(function(data) {
         if (initial_selected == data[i]["Symbol"]) {
             dates.push(data[i]["Date"]);
             closes.push(data[i]["Close"]);
-            SMA30.push(data[i]["SMA30"]);
-            SMA100.push(data[i]["SMA100"]);
+            SMA50.push(data[i]["SMA50"]);
+            SMA200.push(data[i]["SMA200"]);
             buysig.push(data[i]["Buy_Signal_Price"]);
             sellsig.push(data[i]["Sell_Signal_Price"]);
         }
     }
     console.log(dates);
     console.log(closes);
-    console.log(SMA30);
-    console.log(SMA100);
+    console.log(SMA50);
+    console.log(SMA200);
     
     
     var trace1 = {
@@ -55,9 +55,9 @@ d3.csv("Data/5DowCompanies_DJIA.csv").then(function(data) {
     };
     var trace2 = {
         x: dates,
-        y: SMA30,
+        y: SMA50,
         mode: 'lines',
-        name: '30-day MA',
+        name: '50-day MA',
         opacity: .3,
         marker: {
             color: 'rgb(0, 0, 128)'
@@ -65,9 +65,9 @@ d3.csv("Data/5DowCompanies_DJIA.csv").then(function(data) {
     };
     var trace3 = {
         x: dates,
-        y: SMA100,
+        y: SMA200,
         mode: 'lines',
-        name: '100-day MA',
+        name: '200-day MA',
         opacity: .3,
         marker: {
             color: 'rgb(219, 64, 82)'
@@ -101,11 +101,11 @@ d3.csv("Data/5DowCompanies_DJIA.csv").then(function(data) {
     d3.select("#symbolselect").on("change", changefunc);
     
     function changefunc() {
-        d3.csv("Data/5DowCompanies_DJIA.csv").then(function(data) {
+        d3.csv("Data/DowStocksandDJIA_Data.csv").then(function(data) {
                 var dates = [];
                 var closes = [];
-                var SMA30 = [];
-                var SMA100 = [];
+                var SMA50 = [];
+                var SMA200 = [];
                 var buysig = [];
                 var sellsig = [];
                 var initial_selected = d3.select("#symbolselect").property("value");
@@ -115,16 +115,16 @@ d3.csv("Data/5DowCompanies_DJIA.csv").then(function(data) {
                     if (initial_selected == data[i]["Symbol"]) {
                     dates.push(data[i]["Date"]);
                     closes.push(data[i]["Close"]);
-                    SMA30.push(data[i]["SMA30"]);
-                    SMA100.push(data[i]["SMA100"]);
+                    SMA50.push(data[i]["SMA50"]);
+                    SMA200.push(data[i]["SMA200"]);
                     buysig.push(data[i]["Buy_Signal_Price"]);
                     sellsig.push(data[i]["Sell_Signal_Price"]);
                     }
                 }
                 console.log(dates);
                 console.log(closes);
-                console.log(SMA30);
-                console.log(SMA100);
+                console.log(SMA50);
+                console.log(SMA200);
     
     
                 var trace1 = {
@@ -139,9 +139,9 @@ d3.csv("Data/5DowCompanies_DJIA.csv").then(function(data) {
                 };
                 var trace2 = {
                     x: dates,
-                    y: SMA30,
+                    y: SMA50,
                     mode: 'lines',
-                    name: '30-day MA',
+                    name: '50-day MA',
                     opacity: .3,
                     marker: {
                         color: 'rgb(0, 0, 128)'
@@ -149,9 +149,9 @@ d3.csv("Data/5DowCompanies_DJIA.csv").then(function(data) {
                 };
                 var trace3 = {
                     x: dates,
-                    y: SMA100,
+                    y: SMA200,
                     mode: 'lines',
-                    name: '100-day MA',
+                    name: '200-day MA',
                     opacity: .3,
                     marker: {
                         color: 'rgb(219, 64, 82)'
