@@ -1,45 +1,168 @@
 <!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <title>Prject 3- Team Ifrit</title>
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="static/styles.css">
-</head>
+<html>
+<title>Stock Analysis</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
-  <div class="container">
-    <nav class="navbar">
-      <ul>
-        <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#">About</a>
-        </li>
-        <li>
-          <a href="#">Regression</a>
-        </li>
-        <li>
-          <a href="#">NLP</a>
-        </li>
-      </ul>
-    </nav>
-    <header class="header">
-      <h1>Predicting Stock</h1>
-    </header>
-    <main>
-      <section class="posts">
-        <article class="post">
-          <h3>Title goes here</h3>
-          <p>more stuff goes here
-          </p>
-        </article>
-       
-      </section>
-    </main>
-  </div>
-  
-</body>
 
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+    <a href="#home" class="w3-bar-item w3-button"><b>Team</b> Ifrit</a>
+    
+    <!-- Float links to the right. Hide them on small screens -->
+    <div class="w3-right w3-hide-small">
+      <a href="#Topics" class="w3-bar-item w3-button">Topics</a>
+      <a href="#News Headlines" class="w3-bar-item w3-button">News Headlines</a>
+      <a href="#Regression" class="w3-bar-item w3-button">Regression</a>
+      <a href="#NLP" class="w3-bar-item w3-button">NLP</a>
+      <a href="#Authors" class="w3-bar-item w3-button">Authors</a>
+    </div>
+  </div>
+</div>
+
+<!-- Header -->
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="https://wallpapercave.com/wp/wp2128226.jpg" alt="Architecture" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>Predicting</b></span> <span class="w3-hide-small w3-text-light-grey">The Stock Market?</span></h1>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Topics Section -->
+  <div class="w3-container w3-padding-32" id="Topics">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Topics</h3>
+  </div>
+
+  <div class="w3-row-padding">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">News Headlines</div>
+        <img src="https://i1.wp.com/www.mtctutorials.com/wp-content/uploads/2018/11/free-news-studio-3d-design-and-breaking-news-text-download.jpg?fit=1920%2C1080&ssl=1" alt="House" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Linear Regression Model</div>
+        <img src="https://miro.medium.com/max/2732/1*Taws28YXFZ1Q6ENVqSuHJQ.jpeg" alt="Regression" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">NLP</div>
+        <img src="https://static1.squarespace.com/static/59d9b2749f8dce3ebe4e676d/59ef45141f318d66e6930c0d/5b476093562fa757bc1b3171/1531405411965/NLP-Wallpaper.jpg?format=1500w" alt="House" style="width:100%">
+      </div>
+    </div>
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Misc</div>
+        <img src="https://miro.medium.com/max/1600/1*8JeRn-kD93yzl_B1ygc6DA.jpeg" alt="Misc." style="width:100%">
+      </div>
+    </div>
+  </div>
+
+    <!-- News Headlines Section -->
+    <div class="w3-container w3-padding-32" id="News Headlines">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">News Headlines</h3>
+   
+    <!-- Regression Section -->
+    <div class="w3-container w3-padding-32" id="Regression">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Linear Regression</h3>
+   
+    <!-- NLP Section -->
+    <div class="w3-container w3-padding-32" id="NLP">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NLP</h3>
+   
+    <!-- About Section -->
+    <div class="w3-container w3-padding-32" id="Authors">
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
+        <p>Team Ifrit proudly presents our final project for our Data Visualization and Analytics Bootcamp Cohort 6. Over the last 6 
+            months we have put learned a lot and now take several elements of what we have learned and put them together in this presentation. 
+            We began with the problem of building a model that could predict the rise and fall of the stock market based on news headlines. 
+            For example, do stock prices rise with more positive news? Do certain kinds of events effect stock prices? Are certain NLP libraries 
+            better to use when finding these relationships?</p>
+      </div>
+    
+      <div class="w3-row-padding">
+    
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <img src="https://avatars2.githubusercontent.com/u/7003248?s=460&u=dfbbf41db02db2a7f625eb3d524718a36de32dfa&v=4" alt="Stacy" style="width:100%">
+          <h3>Stacy</h3>
+          <p class="w3-opacity">Data Analyst</p>
+          <p>Can write about what you worked on here.</p>
+          <p><button class="w3-button w3-light-grey w3-block" onclick="window.open('https://github.com/skonkiel', '_blank')">Contact</button></p>
+        </div>
+    
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <img src="https://ca.slack-edge.com/TPZN0KBU0-UQJ4TE8MC-25d3a233b903-512" alt="Julia" style="width:100%">
+          <h3>Julia</h3>
+          <p class="w3-opacity">Data Analyst</p>
+          <p>Can write about what you worked on here.</p>
+          <p><button class="w3-button w3-light-grey w3-block" onclick="window.open('https://github.com/jrevier', '_blank')">Contact</button></p>
+        </div>
+    
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <img src="https://avatars2.githubusercontent.com/u/57878641?s=460&u=9faa2904ee8546b7f5b02a01de76f9b91522bf15&v=4" alt="Katrina" style="width:100%">
+          <h3>Katrina</h3>
+          <p class="w3-opacity">Data Analyst</p>
+          <p>Can write about what you worked on here.</p>
+          <p><button class="w3-button w3-light-grey w3-block" onclick="window.open('https://github.com/katkoenders', '_blank')">Contact</button></p>
+        </div>
+
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <img src="https://ca.slack-edge.com/TPZN0KBU0-UQ1JPEZU2-1c08414020af-512" alt="Adam" style="width:100%">
+          <h3>Adam</h3>
+          <p class="w3-opacity">Data Analyst</p>
+          <p>Can write about what you worked on here.</p>
+          <p><button class="w3-button w3-light-grey w3-block" onclick="window.open('https://github.com/abilski2013', '_blank')">Contact</button></p>
+        </div>
+      </div>
+
+      <div class="w3-row-padding">
+
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <img src="https://ca.slack-edge.com/TPZN0KBU0-UQFSJQYAK-c351d1970dd0-512" alt="Micah" style="width:100%">
+        <h3>Micah</h3>
+        <p class="w3-opacity">Data Analyst</p>
+        <p>Can write about what you worked on here.</p>
+        <p><button class="w3-button w3-light-grey w3-block" onclick="window.open('https://github.com/micahvandersteen', '_blank')">Contact</button></p>
+      </div>
+  
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <img src="https://ca.slack-edge.com/TPZN0KBU0-UQC9RTRK5-778afa225b4d-512" alt="Brandon" style="width:90%">
+        <h3>Brandon</h3>
+        <p class="w3-opacity">Data Analyst</p>
+        <p>Can write about what you worked on here.</p>
+        <p><button class="w3-button w3-light-grey w3-block" onclick="window.open('https://github.com/buher8819', '_blank')">Contact</button></p>
+      </div>
+  
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <img src="https://ca.slack-edge.com/TPZN0KBU0-UQJ8E59AS-c9c0c9bf7d55-512" alt="Alan" style="width:100%">
+        <h3>Alan</h3>
+        <p class="w3-opacity">Data Analyst</p>
+        <p>Can write about what you worked on here.</p>
+        <p><button class="w3-button w3-light-grey w3-block" onclick="window.open('https://github.com/river127', '_blank')">Contact</button></p>
+      </div>
+      
+
+  
+<!-- Image of location/map -->
+<div class="w3-container">
+  <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--5oik1T3Q--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/q1mvxm0lak55m7xobqjk.png" class="w3-image" style="width:100%">
+</div>
+
+<!-- End page content -->
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-16">
+  <p>Thank You!</p>
+</footer>
+
+</body>
 </html>
