@@ -1,4 +1,4 @@
-d3.csv("Data/DowStocksandDJIA_Data.csv").then(function(data) {
+d3.csv("../Data/DowStocksandDJIA_Data.csv").then(function(data) {
     console.log(data);
     var selector = [];
     for (i=0; i < data.length; i++) {
@@ -101,7 +101,7 @@ d3.csv("Data/DowStocksandDJIA_Data.csv").then(function(data) {
     d3.select("#symbolselect").on("change", changefunc);
     
     function changefunc() {
-        d3.csv("Data/DowStocksandDJIA_Data.csv").then(function(data) {
+        d3.csv("../Data/DowStocksandDJIA_Data.csv").then(function(data) {
                 var dates = [];
                 var closes = [];
                 var SMA50 = [];
