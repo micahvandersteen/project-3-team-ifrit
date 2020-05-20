@@ -3,9 +3,13 @@ This repo contains a Machine Learning project that predicts stock market data on
 
 # Sources:
 https://keras.io/api/layers/recurrent_layers/lstm/
+
 https://machinelearningmastery.com/time-series-prediction-lstm-recurrent-neural-networks-python-keras/
+
 https://towardsdatascience.com/understanding-lstm-and-its-quick-implementation-in-keras-for-sentiment-analysis-af410fd85b47
+
 https://colah.github.io/posts/2015-08-Understanding-LSTMs/
+
 https://towardsdatascience.com/getting-rich-quick-with-machine-learning-and-stock-market-predictions-696802da94fe
 
 # About
