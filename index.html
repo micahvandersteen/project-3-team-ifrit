@@ -34,7 +34,7 @@
 </header>
 
 <!-- Page content -->
-<div class="w3-content w3-padding" style="max-width:1564px">
+<div class="w3-content w3-padding" style="max-width:1564px"> 
 
   <!-- Topics Section -->
   <div class="w3-container w3-padding-32" id="Topics">
@@ -70,16 +70,71 @@
 
     <!-- News Headlines Section -->
     <div class="w3-container w3-padding-32" id="News Headlines">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">News Headlines</h3>
+      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About the data</h3>
+      
+      <h4>Stock data</h4>
+      <img src='./Images/exploratory_djia_close_date.png'>
+      <p>
+        The Dow Jones Industrial Average data in our dataset ranges from late 2008 to mid 2016. 
+        From 2009-2015, complete weekday DJIA closing price data was collected for all years except 2012. 
+      </p>
+      <p>News API data...</p>
+      <p>
+        Credits: 
+        <ul>
+          <li>Sun, J. (2016, August). Daily News for Stock Market Prediction, Version 1. Retrieved May 2020 from https://www.kaggle.com/aaron7sun/stocknews. </li>
+          <li>News API data credit goes here</li>
+        </ul>
+      </p>
+      
+      <h4>Headline data</h4>
+      <p>
+        Headline data was captured from the Reddit r/worldnews forum over the same time period as the stock data, 2008 - 2016. These data were collected
+        by J. Sun and included in the "Daily News for Stock Market Prediction" dataset described above. The average headline was 10.1 words long.
+      </p>
+      <p>More interesting is a content analysis of the headlines. Based on a simple count of how often words and phrases appear in news headlines for our entire dataset, what can we learn?</p>
+      
+      <p>Keyword analysis revealed some high-level trends having to do with particular countries ('China', 'Korea') and concepts ('government', 'police', 'kill'). Overall, these keywords were not particularly enlightening.</p>
+      <img src='./Images/exploratory_word_freqdist.png'> <img src='./Images/exploratory_word_bigrams.png'> <img src='./Images/exploratory_word_trigrams.png'>
+      <p>In extending the analysis to bigrams (two co-occuring words) and trigrams (three co-occuring words), we see more specific topics begin to appear ('Julian Assange', 'Hong Kong', 'Islamic State', 'Trans Pacific Partnership', 'Chancellor Angela Merkel').</p>
+      <img src='./Images/exploratory_popular_words.png'>
+      <p>Of the top 10 single-word headlines, use of the terms appeared consistent over time, with the exception of "Israel", which peaked in 2009, likely due to that year's controversial Israeli military operation, "Operation Cast Lead".</p>
+      <p>In comparing the most popular headline keywords from when the DJIA was above/below average, we found no notable trends that could not be explained by the fact that the DJIA was generally on an upward trajectory from 2009 onward. Thus, popular keywords were simply related to the point in time at which they occurred, and did not appear to have an affect on the DJIA overall.</p>
+
+    </div> 
    
     <!-- Regression Section -->
     <div class="w3-container w3-padding-32" id="Regression">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Linear Regression</h3>
-   
+    </div>
     <!-- NLP Section -->
     <div class="w3-container w3-padding-32" id="NLP">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NLP</h3>
-   
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NLP: Topic Modeling</h3>
+        <h4>Latent Dirichlet allocation (LDA)</h4>
+        <p><a href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Latent Dirichlet allocation</a> is a way to discover higher-level topics out of individual words present in any set of document (in our case, news headlines). You can use LDA to get a sense of the overall themes in a set of documents.</p>
+        <p>LDA is an unsupervised machine learning model that works by analyzing two things: a distribution of topics in a document, and a distribution of words in a topic. The "topics" it finds aren't specific words (e.g., "This headline is about 'war'") but instead conceptually similar groups of words that together make up a theme (e.g., "This headline is similar to the words 'war', 'crisis', 'iran'...").</p>
+        <p>Once you've created your LDA model, you can feed in a document and the model will score the overall relevancy of your document against the main x topics found in your overall corpus. In other words, it will tell you which of the main topics found in the overall corpus are also found in your document, and to what extent.</p>
+        <p>LDA is a popular topic modeling choice among NLP professionals. However, we found that it did not create topics as accurate and coherent as NMF, possibly due to the fact that we were working with short text.</p>
+        <p>Example LDA topic groupings:</p>
+        <code>
+          Topic: 0 || president time force north protest<br/>
+          Topic: 1 || russian russia force president military <br/>
+          Topic: 2 || russia japan korea president country
+        </code>
+
+        <h4>Non-negative Matrix Factorization (NMF)</h4>
+        <p>Non-negative Matrix Factorization is a mathematical technique that when applied to documents can take data with many features (e.g. 1000s of topics) and convert them into a smaller set of topics. It is similar to LDA in that it is a way to discover higher-level topics out of individual words present in any set of document (in our case, news headlines). You can use NMF to get a sense of the overall themes in a set of documents.</p>
+        <p>NMF is an unsupervised machine learning model that works by taking your matrix A of documents x words (e.g. 50 documents and 5000 words) and returning topics (W) and weights/coefficients (H) for the topics.</p>
+        <p>As Rob Salgado explains in his <a href="https://towardsdatascience.com/topic-modeling-articles-with-nmf-8c6b2a227a45">excellent article on NMF</a>, "NMF will modify the initial values of W and H so that the product approaches A until either the approximation error converges or the max iterations are reached."</p>
+        <p>Like LDA, the "topics" that NMF finds aren't specific words but instead conceptually similar groups of words that together make up a theme.</p>
+        <p>In our analysis, we found that NMF created more intuitive and coherent topic groupings.</p>
+        <p>Example NMF topic groupings:</p>
+        <code>
+          Topic: 0 || police iran kill 	people afghanistan <br/>
+          Topic: 1 || gaza israel israeli hamas palestinians <br/>
+          Topic: 2 || isis islamic state islamic ebola state
+        </code>
+    </div>
     <!-- Golden Cross Section -->    
     <div class="w3-container w3-padding-32" id="GoldenCross">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Golden Cross</h3>
@@ -87,19 +142,23 @@
           <select id="symbolselect">
           </select>
           <div id="crossAnalysis"></div>        
-
+    </div>
     <!-- About Section -->
     <div class="w3-container w3-padding-32" id="Authors">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
         <p>Team Ifrit proudly presents our final project for our Data Visualization and Analytics Bootcamp, Cohort 6. 
           Over the last 6 months we have learned a lot and now take several elements of the knowledge that we have gained 
-          to put together in this presentation. We began with the problem of building a model that could potentially predict 
+          to put together in this presentation. </p>
+          
+          <p>
+          We began with the challenge of building a model that could potentially predict 
           the rise and fall of the stock market based on news headlines. For example, would stock prices rise with more positive 
           news? Are there certain key phrases or words impact the direction of market values? Are certain analytical libraries 
-          better to use when finding these relationships? Evidence, not only from our work, will support the idea that the stock 
-          market is as unpredictable as one might think. There is, currently, no algorithm that we came up with that will change 
-          human history forever, however, we were able to successfully utilize our skills and understanding, as a group, to 
-          navigate through a tough question and at least assemble valuable conclusions to the models that we built. </p>
+          better to use when finding these relationships? Our analysis found that the stock 
+          market is as unpredictable as one might think. </p>
+          <p>Though we were sadly unable to change the course of human history and also make ourselves
+          filthy rich through this project, we are happy to have successfully utilized our data analysis skills to 
+          navigate through a tough question as a team, and deliver valuable conclusions based on the models that we built. </p>
       </div>
     
       <div class="w3-row-padding">
@@ -107,8 +166,11 @@
         <div class="w3-col l3 m6 w3-margin-bottom">
           <img src="https://avatars2.githubusercontent.com/u/7003248?s=460&u=dfbbf41db02db2a7f625eb3d524718a36de32dfa&v=4" alt="Stacy" style="width:100%">
           <h3>Stacy</h3>
-          <p class="w3-opacity">Data Analyst</p>
-          <p>Can write about what you worked on here.</p>
+          <p class="w3-opacity">Data Analyst, Topic Modeling</p>
+          <p>Stacy Konkiel is a data analyst who delights in helping organizations with their intractable data related challenges. 
+            For this project, Stacy researched, applied, and refined natural language processing 
+            models that determined news headline topics. The resulting data were analyzed in regression models and neural networks to 
+            determine if daily news headlines drive stock market gains and losses.</p>
           <p><button class="w3-button w3-light-grey w3-block" onclick="window.open('https://github.com/skonkiel', '_blank')">Contact</button></p>
         </div>
     
@@ -184,6 +246,6 @@
 </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-    <script src="goldencross.js" type="text/javascript"></script>        
+    <script src="./Website/goldencross.js" type="text/javascript"></script>        
 </body>
 </html>
