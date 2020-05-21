@@ -74,8 +74,26 @@
    
     <!-- Regression Section -->
     <div class="w3-container w3-padding-32" id="Regression">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Linear Regression</h3>
-   
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Support Vector Regressions</h3>
+        <p>We built a function that generates predictions of stock closing prices using SVM-Support Vector Regression models, and linear regression. The Linear Regression model is not a good predictor of stock prices due to the volatile nature of the market. The SVR-Radial Basis Function (SVR-RBF) is actually a fairly good predictor of price movement. See images below on a couple of examples using the stocks Tesla and Pfizer. The function is set up so one can pass in a variable that contains a list of stock symbols (see code <a href="#">here</a>)</p><!-- Link to notebook on github repo -->
+        <h5>Tesla</h5>
+        <img src="../Images/SVR_Tesla.png">
+        <h5>Pfizer</h5>
+        <img src="../Images/SVR_Pfizer.png">
+        
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Logistic Regressions</h3>
+        
+        <p>Using results from LDA models and NMF natural language processing models, we wanted to test to see if a logistic regression would be able to predict if the stock market was going up or down. For this analysis we were not looking to predict exact prices, but rather just direction of the market. We ran several logistic regression models bringing in different "scores" of the headlines on the headline dataset. Using the LDA scores, we were able to predict the direction of the market 267 days correctly, and 230 days incorrectly...</p>
+        
+        <img src="../Images/LDA_LogisticRegressionResults.png">
+        
+        <p>Using sentiment anlysis results from the NLTK analysis... against a logistic regression we were able to predict daily market direction 298 times correctly vs 199 incorrectly. This was our best performing logistic regression model. </p>
+        
+        <img src="../Images/Sentiment_Winner.png">
+        
+        <p>see logistic regression code <a href="#">here</a></p> <!-- Github repo notebook -->
+        
+        
     <!-- NLP Section -->
     <div class="w3-container w3-padding-32" id="NLP">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NLP</h3>
@@ -83,6 +101,7 @@
     <!-- Golden Cross Section -->    
     <div class="w3-container w3-padding-32" id="GoldenCross">
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Golden Cross</h3>
+        <p>A common strategy in trading is to track a short term moving average (in this example, 50-day simple moving average) and a long term moving average (in this example, 200-day simple moving average). When these averages cross, many technical traders see these points in the market as signals to buy or sell a security. The below interactive visual allows you to check out how these strategies would have faired on the Dow Jones Industrial average, and all the individual stocks that make up the DJIA. This strategy shows green marks for signals to buy (50 day moving average moves above 200 day), and shows red marks for signals to sell (200 day moving average moves above 200 day). Check it out yourself to see how this basic strategy works fairly well over time! </p>
 
           <select id="symbolselect">
           </select>
@@ -154,7 +173,7 @@
         <img src="https://ca.slack-edge.com/TPZN0KBU0-UQC9RTRK5-778afa225b4d-512" alt="Brandon" style="width:90%">
         <h3>Brandon</h3>
         <p class="w3-opacity">Data Analyst</p>
-        <p>Can write about what you worked on here.</p>
+        <p>Neural Networks (NN) seemed to offer a lot of potential when it comes to predictive power.  NN and Deep Learning models are powerful predictive tools, but what is being predicted needs to be understood.  The effectiveness of NN, specifically Recurrent Neural Networks (RNN) are explored here.</p>
         <p><button class="w3-button w3-light-grey w3-block" onclick="window.open('https://github.com/buher8819', '_blank')">Contact</button></p>
       </div>
   
