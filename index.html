@@ -263,7 +263,28 @@
         <p><a href="./Notebooks/NMF.ipynb">Learn more about the NMF model.</a></p>
 
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NLP: Sentiment Analysis</h3>
-    </div>
+        <p><a href="https://en.wikipedia.org/wiki/Sentiment_analysis">Sentiment Analysis</a> is a Natural Language Processing (NLP) study of opinions, sentiments and emotions expressed in various forms of text. We can use Sentiment analysis to get an overall feel of a diner’s restaurant review, comments on an Instagram post, or in our case: news headlines.</p>
+        <p>Sentiment Analysis models search for  words that might define the overall positivity/negativity of a text, like the words “good” , “bad” , “perfect” , “dismal”. NLTK uses this “bag of words” approach while also taking into account intensifier words like “really” or “very” when calculating a sentiment score.</p>
+        <h4>Natural Language Toolkit (NLTK)</h4>
+        <p><a href="https://en.wikipedia.org/wiki/Natural_Language_Toolkit">NLTK</a> is a suite of Natural Language Processing libraries that uses Python to perform symbolic and statistical NLP in English. </p>
+        <p>NLTK includes a pretrained sentiment model VADER (Valence Aware Dictionary and sEntiment Reasoner). Vader is able to communicate if a text blob is negative or positive and also how strongly the document is skewed. VADER can be directly applied to a dataset (such as news headlines) and will automatically return a sentiment score of 1 to -1 (1 being the most postitive and -1 the most negative).</p>
+        <p>In our analysis, we found that news headlines tended to be skewed negatively, which many not come as a surprise:</p>
+        <div class='tableauPlaceholder' id='viz1590165483377' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SentimentAnalysis_15901654119190&#47;AverageDailySentiment&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SentimentAnalysis_15901654119190&#47;AverageDailySentiment' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SentimentAnalysis_15901654119190&#47;AverageDailySentiment&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1590165483377');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.50)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <h4>Additional Sentiment Models</h4>
+        <p>We also compared the NLTK VADER model against Flair's 'fast-sentiment' model to obeserve how different models would score the headlines.</p>
+        <p><a href="https://github.com/flairNLP/flair">Flair</a> is an additional NLP and sentiment analysis tool that uses a character-level Long-Short Term Memory (LSTM) neural network. LSTMs which takes the sequence of words into account, which might be preferable to NLTK's bag of words approach. Flair has also learned to account for negations like ("I love dogs") vs. ("I do not love dogs"). Flair can also predict typos which is a huge advantage in analysing social media text.</p>
+        <p>Here's how the models performed in scoring two sample headlines:</p>
+        <h4><u>NLTK:</u></h4>
+        <img src="../Images/NLTK_China.png" alt="NLTK" style="width:100%">
+        <hr>
+        <img src="../Images/NLTK_sk.png" alt="NLTK" style="width:70%">
+        <h4><u>Flair:</u></h4>
+        <img src="../Images/Flair_China.png" alt="Flair" style="width:100%">
+        <hr>
+        <img src="../Images/Flair_sk.png" alt="Flair" style="width:100%">
+        <p>While both models scored the South Korean headline negatively, Flair also scored the Chinese news headline negatively, while NLTK scored it more postively. It would be interesting to explore both of these models more fully in the future and see which one is more accurate in scoring news headlines. </p>
+        <p>To learn more about our sentiment analysis, visit our notebook <a href ="https://github.com/micahvandersteen/project-3-team-ifrit/blob/master/Notebooks/NLTK.ipynb">here.</a> </p>
+      </div>
 
       <!-- Neural Networks Section -->
 
@@ -344,7 +365,7 @@
           <img src="https://ca.slack-edge.com/TPZN0KBU0-UQJ4TE8MC-25d3a233b903-512" alt="Julia" style="width:100%">
           <h3>Julia</h3>
           <p class="w3-opacity">Data Analyst</p>
-          <p>Can write about what you worked on here.</p>
+          <p>My contribution to this project was adapting pretrained Sentiment Analysis models to our news headlines data and developing a daily sentiment score that could be applied to our Linear Regression Models. I used NLTK's pretrained VADER model for our Linear Regression Analysis. I also experimented with Flair's sentiment-fast model to see how the two models compared in sentiment scoring. </p>
           <p><button class="w3-button w3-light-grey w3-block" onclick="window.open('https://github.com/jrevier', '_blank')">Contact</button></p>
         </div>
     
