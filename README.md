@@ -1,7 +1,11 @@
 # Predicting the Stock Market?
 This project examines the challenge of building machine learning models that can predict the rise and fall of the stock market based on what's in the news. For example, will stock prices rise with more positive 
-news? Are there certain key phrases or words that impact the direction of market values? Are certain analytical approaches better for finding these relationships? Our analysis found that the stock 
-market is as unpredictable as one might think. 
+news? Are there certain key phrases or words that impact the direction of market values? Are certain analytical approaches better for finding these relationships? 
+
+Our analysis found:
+* The stock market is too unpredictable to say that headlines can reliably predict market gains/losses. 
+* Of the analysis techniques attempted, sentiment analysis came closest to providing signals for future stock market change over time.
+* Of the topic modelling approaches used, Latent Dirichlet Allocation (LDA) provided better data for logistic regression analysis than Non-negative Matrix Factorization (NMF)...but both ultimately performed very poorly when attempting to predict stock market change.
 
 ## Built with
 - [pandas](https://pandas.pydata.org/)
@@ -12,8 +16,19 @@ market is as unpredictable as one might think.
 - [plotly.js](https://plotly.com/javascript/)
 - [Jupyter Notebook](https://jupyter.org/)
 
-## A note on organization
+## A note on workflow
+This analysis follows a specific workflow:
+```
+sentiment analysis and topic modeling on news headlines -> enhance existing data -> 
+run regression and neural network models using headline topics and sentiments plus market gains/losses to find relationships
+```
+You'll want to explore the analysis notebooks in this general order:
+1. Stock and news headline descriptive analysis
+2. NLTK (sentiment analysis)
+3. LDA / NMF (topic modeling) 
+4. Logistic regression / recurrent neural networks
 
+Notebooks containing Golden Cross and SVM analyses were used to create performance benchmarks for market prediction techniques.
 
 ## Installation and use
 ### Download the repository
@@ -23,7 +38,7 @@ git clone git@github.com:micahvandersteen/project-3-team-ifrit.git
 ```
 
 ### Exploring the data analysis notebooks
-1. Install the necessary libraries . Note: If you are an [Anaconda](https://www.anaconda.com/) user, you may have most of these libraries pre-installed. 
+1. Install the necessary libraries via your CLI. Note: If you are an [Anaconda](https://www.anaconda.com/) user, you may have most of these libraries pre-installed. 
 ```
 pip install pandas
 pip install --user -U nltk
