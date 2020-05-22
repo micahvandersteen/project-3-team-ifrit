@@ -290,20 +290,23 @@
 
   <div class="w3-container w3-padding-32" id="Neural Networks">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Neural Networks</h3>
+    <h4>Recurrent Neural Networks (RNN) and the Long Short Term Memory (LSTM) Network</h4>
+    <p>Neural Networks (NN) offered another opportunity to attempt to forecast stock price data.  NNs make use of hidden layers that operate on inputs, producing outputs as a result of what the layers are told to do.  Stock prices, which can be more broadly categorized as time-series data, are heavily influenced by past events.  This means that what happened yesterday can influence what happens today.  A Recurrent Neural Network is very good at taking this into account, and as a result, is often compared to human thought.  Human thought is heavily influenced by past experiences and the knowledge that comes with it.  RNN might be good at using historical events to forecast future ones, it can suffer over a long period of time.  Stock prices, of course, produce new data every day and go back years in time.  Long Short Term Memory (LSTM) is a type of RNN model that attempts to mitigate these long term effects.  For more information on the LSTM model and how it works, you can check out a great article here : <a href="https://colah.github.io/posts/2015-08-Understanding-LSTMs/">Long Short Term Memory</a></p>
   </div>
  
   <div class="w3-row-padding">
 
     <div class="w3-col l6 m6 w3-margin-bottom">
       <div class="w3-display-container">
-        <img src="../Images/LSTM_One_Feature_0.png" alt="LSTM_One_Feature_0" style="width:100%">
+        <img src="../Images/LSTM_One_Feature_0.png" alt="LSTM_One_Feature_0" style="width:100%">        
       </div>
+      <p>Here, a model that makes use of an LSTM network, is utilized to forecast historical stock price data from the Dow Jones Industrial Average (DJIA).  This model utilizes a single feature, the opening prices.</p>
     </div>
   
     <div class="w3-col l6 m6 w3-margin-bottom">
       <div class="w3-display-container">
         <img src="../Images/LSTM_One_Feature_1.png" alt="LSTM_One_Feature_1" style="width:100%">
-      </div>
+      </div>    
     </div>
 
 <div class="w3-row-padding">
@@ -312,6 +315,7 @@
     <div class="w3-display-container">
       <img src="../Images/LSTM_Multi_Feature_0.png" alt="LSTM_Multi_Feature_0" style="width:100%">
     </div>
+    <p>This model is updated to make its prediction with more features.  Now the model has access to open/close prices, high and low points, as well as things like volume traded.  With more features, the prediction becomes closer to resembling the real data.</p>
   </div>
 
   <div class="w3-col l6 m6 w3-margin-bottom">
@@ -326,6 +330,8 @@
       <div class="w3-display-container">
         <img src="../Images/LSTM_w_Topic_0.png" alt="LSTM_w_Topic_0" style="width:100%">
       </div>
+      <p>The model is now fed topic data that was generated from the NLP analysis previously discussed.  Once again, the model seems to become more accurate with the added information.</p>
+      <p><a href="https://github.com/micahvandersteen/project-3-team-ifrit/blob/master/Notebooks/NN_Stock/DJIA_NN.ipynb">Jupyter Notebook</a></p>
     </div>
   
     <div class="w3-col l6 m6 w3-margin-bottom">
