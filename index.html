@@ -118,52 +118,18 @@
         
   </div>
 
-
-
-  <!-- Topics Section -->
-  <!-- <div class="w3-container w3-padding-32" id="Topics">
-    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Topics</h3>
-  </div>
-
-  <div class="w3-row-padding">
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">News Headlines</div>
-        <img src="https://i1.wp.com/www.mtctutorials.com/wp-content/uploads/2018/11/free-news-studio-3d-design-and-breaking-news-text-download.jpg?fit=1920%2C1080&ssl=1" alt="Headlines" style="width:100%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Linear Regression Model</div>
-        <img src="https://miro.medium.com/max/2732/1*Taws28YXFZ1Q6ENVqSuHJQ.jpeg" alt="Regression" style="width:100%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">NLP</div>
-        <img src="https://static1.squarespace.com/static/59d9b2749f8dce3ebe4e676d/59ef45141f318d66e6930c0d/5b476093562fa757bc1b3171/1531405411965/NLP-Wallpaper.jpg?format=1500w" alt="NLP" style="width:100%">
-      </div>
-    </div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Misc</div>
-        <img src="https://miro.medium.com/max/1600/1*8JeRn-kD93yzl_B1ygc6DA.jpeg" alt="Misc." style="width:100%">
-      </div>
-    </div>
-  </div> -->
-
       <!-- About Section -->
 
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
         <p>Team Ifrit proudly presents our final project for our Data Visualization and Analytics Bootcamp, Cohort 6. 
           Over the last 6 months we have learned a lot and now take several elements of the knowledge that we have gained 
-          to put together in this presentation. </p>
+          to tackle an interesting problem. </p>
           
           <p>
           We began with the challenge of building a model that could potentially predict 
           the rise and fall of the stock market based on news headlines. For example, would stock prices rise with more positive 
-          news? Are there certain key phrases or words impact the direction of market values? Are certain analytical libraries 
-          better to use when finding these relationships? Our analysis found that the stock 
+          news? Are there certain key phrases or words that impact the direction of market values? Are certain analytical libraries 
+          better for finding these relationships? Our analysis found that the stock 
           market is as unpredictable as one might think. </p>
           <p>Though we were sadly unable to change the course of human history and also make ourselves
           filthy rich through this project, we are happy to have successfully utilized our data analysis skills to 
@@ -181,7 +147,6 @@
           <img src="./Images/exploratory_djia_close_date.png" alt="DJIA closing price over time" style="width:100%">
         </div>
       </div>
-      <!-- <img src='./Images/exploratory_djia_close_date.png'> -->
       <p>
         The Dow Jones Industrial Average data in our dataset ranges from late 2008 to mid 2016. 
         From 2009-2015, complete weekday DJIA closing price data was collected for all years except 2012. 
@@ -241,7 +206,7 @@
       <p>Of the top 10 single-word headlines, use of the terms appeared consistent over time, with the exception of "Israel", which peaked in 2009, likely due to that year's controversial Israeli military operation, "Operation Cast Lead".</p>
       <p>In comparing the most popular headline keywords from when the DJIA was above/below average, we found no notable trends that could not be explained by the fact that the DJIA was generally on an upward trajectory from 2009 onward. Thus, popular keywords were simply related to the point in time at which they occurred, and did not appear to have an affect on the DJIA overall.</p>
 
-    </div> 
+    </div> </div> 
    
     <!-- Regression Section -->
     
@@ -265,6 +230,7 @@
         
         <p>see logistic regression code <a href="https://github.com/micahvandersteen/project-3-team-ifrit/blob/master/Notebooks/LogisticRegressionOnLDA_SentimentAnalysis.ipynb
           " target="_blank">here</a></p>
+    </div>
 
     <!-- NLP Section -->
     <div class="w3-container w3-padding-32" id="NLP">
@@ -280,6 +246,7 @@
           Topic: 1 || russian russia force president military <br/>
           Topic: 2 || russia japan korea president country
         </code>
+        <p><a href="./Notebooks/LDA.ipynb">Learn more about the LDA model.</a></p>
 
         <h4>Non-negative Matrix Factorization (NMF)</h4>
         <p>Non-negative Matrix Factorization is a mathematical technique that when applied to documents can take data with many features (e.g. 1000s of topics) and convert them into a smaller set of topics. It is similar to LDA in that it is a way to discover higher-level topics out of individual words present in any set of document (in our case, news headlines). You can use NMF to get a sense of the overall themes in a set of documents.</p>
@@ -293,6 +260,9 @@
           Topic: 1 || gaza israel israeli hamas palestinians <br/>
           Topic: 2 || isis islamic state islamic ebola state
         </code>
+        <p><a href="./Notebooks/NMF.ipynb">Learn more about the NMF model.</a></p>
+
+        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NLP: Sentiment Analysis</h3>
     </div>
 
       <!-- Neural Networks Section -->
