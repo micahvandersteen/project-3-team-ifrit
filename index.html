@@ -17,9 +17,9 @@
     <div class="w3-right w3-hide-small">
       <a href="#Technologies" class="w3-bar-item w3-button">Technologies</a>
       <a href="#Headline Data" class="w3-bar-item w3-button">About the Data</a>
+      <a href="#NLP" class="w3-bar-item w3-button">NLP</a>
       <a href="#GoldenCross" class="w3-bar-item w3-button">Golden Cross</a>
       <a href="#Regression" class="w3-bar-item w3-button">Regression</a>
-      <a href="#NLP" class="w3-bar-item w3-button">NLP</a>
       <a href="#Neural Networks" class="w3-bar-item w3-button">Neural Networks</a>  
       <a href="#Authors" class="w3-bar-item w3-button">Authors</a>
     </div>
@@ -221,18 +221,73 @@
       <p>In comparing the most popular headline keywords from when the DJIA was above/below average, we found no notable trends that could not be explained by the fact that the DJIA was generally on an upward trajectory from 2009 onward. Thus, popular keywords were simply related to the point in time at which they occurred, and did not appear to have an affect on the DJIA overall.</p>
 
     </div> </div> 
-   
-    <!-- Golden Cross Section -->    
-    <div class="w3-container w3-padding-32" id="GoldenCross">
-      <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Benchmarking: Golden Cross</h3>
-
-      <p>A common strategy in trading is to track a short term moving average (in this example, 50-day simple moving average) and a long term moving average (in this example, 200-day simple moving average). When these averages cross, many technical traders see these points in the market as signals to buy or sell a security. The below interactive visual allows you to check out how these strategies would have faired on the Dow Jones Industrial average, and all the individual stocks that make up the DJIA. This strategy shows green marks for signals to buy (50 day moving average moves above 200 day), and shows red marks for signals to sell (200 day moving average moves above 200 day). Check it out yourself to see how this basic strategy works fairly well over time! </p>
-
-        <select id="symbolselect">
-        </select>
-        <div id="crossAnalysis"></div>        
-  </div>
+  
     
+  <!-- NLP Section -->
+  <div class="w3-container w3-padding-32" id="NLP">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NLP: Topic Modeling</h3>
+    <h4>Latent Dirichlet allocation (LDA)</h4>
+    <p><a href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Latent Dirichlet allocation</a> is a way to discover higher-level topics out of individual words present in any set of document (in our case, news headlines). You can use LDA to get a sense of the overall themes in a set of documents.</p>
+    <p>LDA is an unsupervised machine learning model that works by analyzing two things: a distribution of topics in a document, and a distribution of words in a topic. The "topics" it finds aren't specific words (e.g., "This headline is about 'war'") but instead conceptually similar groups of words that together make up a theme (e.g., "This headline is similar to the words 'war', 'crisis', 'iran'...").</p>
+    <p>Once you've created your LDA model, you can feed in a document and the model will score the overall relevancy of your document against the main x topics found in your overall corpus. In other words, it will tell you which of the main topics found in the overall corpus are also found in your document, and to what extent.</p>
+    <p>LDA is a popular topic modeling choice among NLP professionals. However, we found that it did not create topics as accurate and coherent as NMF, possibly due to the fact that we were working with short text.</p>
+    <p>Example LDA topic groupings:</p>
+    <code>
+      Topic: 0 || president time force north protest<br/>
+      Topic: 1 || russian russia force president military <br/>
+      Topic: 2 || russia japan korea president country
+    </code>
+    <p><a href="./Notebooks/LDA.ipynb">Learn more about the LDA model.</a></p>
+
+    <h4>Non-negative Matrix Factorization (NMF)</h4>
+    <p>Non-negative Matrix Factorization is a mathematical technique that when applied to documents can take data with many features (e.g. 1000s of topics) and convert them into a smaller set of topics. It is similar to LDA in that it is a way to discover higher-level topics out of individual words present in any set of document (in our case, news headlines). You can use NMF to get a sense of the overall themes in a set of documents.</p>
+    <p>NMF is an unsupervised machine learning model that works by taking your matrix A of documents x words (e.g. 50 documents and 5000 words) and returning topics (W) and weights/coefficients (H) for the topics.</p>
+    <p>As Rob Salgado explains in his <a href="https://towardsdatascience.com/topic-modeling-articles-with-nmf-8c6b2a227a45">excellent article on NMF</a>, "NMF will modify the initial values of W and H so that the product approaches A until either the approximation error converges or the max iterations are reached."</p>
+    <p>Like LDA, the "topics" that NMF finds aren't specific words but instead conceptually similar groups of words that together make up a theme.</p>
+    <p>In our analysis, we found that NMF created more intuitive and coherent topic groupings.</p>
+    <p>Example NMF topic groupings:</p>
+    <code>
+      Topic: 0 || police iran kill 	people afghanistan <br/>
+      Topic: 1 || gaza israel israeli hamas palestinians <br/>
+      Topic: 2 || isis islamic state islamic ebola state
+    </code>
+    <p><a href="./Notebooks/NMF.ipynb">Learn more about the NMF model.</a></p>
+
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NLP: Sentiment Analysis</h3>
+    <p><a href="https://en.wikipedia.org/wiki/Sentiment_analysis">Sentiment Analysis</a> is a Natural Language Processing (NLP) study of opinions, sentiments and emotions expressed in various forms of text. We can use Sentiment analysis to get an overall feel of a diner’s restaurant review, comments on an Instagram post, or in our case: news headlines.</p>
+    <p>Sentiment Analysis models search for  words that might define the overall positivity/negativity of a text, like the words “good” , “bad” , “perfect” , “dismal”. NLTK uses this “bag of words” approach while also taking into account intensifier words like “really” or “very” when calculating a sentiment score.</p>
+    <h4>Natural Language Toolkit (NLTK)</h4>
+    <p><a href="https://en.wikipedia.org/wiki/Natural_Language_Toolkit">NLTK</a> is a suite of Natural Language Processing libraries that uses Python to perform symbolic and statistical NLP in English. </p>
+    <p>NLTK includes a pretrained sentiment model VADER (Valence Aware Dictionary and sEntiment Reasoner). Vader is able to communicate if a text blob is negative or positive and also how strongly the document is skewed. VADER can be directly applied to a dataset (such as news headlines) and will automatically return a sentiment score of 1 to -1 (1 being the most postitive and -1 the most negative).</p>
+    <p>In our analysis, we found that news headlines tended to be skewed negatively, which many not come as a surprise:</p>
+    <div class='tableauPlaceholder' id='viz1590165483377' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SentimentAnalysis_15901654119190&#47;AverageDailySentiment&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SentimentAnalysis_15901654119190&#47;AverageDailySentiment' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SentimentAnalysis_15901654119190&#47;AverageDailySentiment&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1590165483377');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.50)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+    <h4>Additional Sentiment Models</h4>
+    <p>We also compared the NLTK VADER model against Flair's 'fast-sentiment' model to obeserve how different models would score the headlines.</p>
+    <p><a href="https://github.com/flairNLP/flair">Flair</a> is an additional NLP and sentiment analysis tool that uses a character-level Long-Short Term Memory (LSTM) neural network. LSTMs which takes the sequence of words into account, which might be preferable to NLTK's bag of words approach. Flair has also learned to account for negations like ("I love dogs") vs. ("I do not love dogs"). Flair can also predict typos which is a huge advantage in analysing social media text.</p>
+    <p>Here's how the models performed in scoring two sample headlines:</p>
+    <h4><u>NLTK:</u></h4>
+    <img src="./Images/NLTK_China.png" alt="NLTK" style="width:100%">
+    <hr>
+    <img src="./Images/NLTK_sk.png" alt="NLTK" style="width:70%">
+    <h4><u>Flair:</u></h4>
+    <img src="./Images/Flair_China.png" alt="Flair" style="width:100%">
+    <hr>
+    <img src="./Images/Flair_sk.png" alt="Flair" style="width:100%">
+    <p>While both models scored the South Korean headline negatively, Flair also scored the Chinese news headline negatively, while NLTK scored it more postively. It would be interesting to explore both of these models more fully in the future and see which one is more accurate in scoring news headlines. </p>
+    <p>To learn more about our sentiment analysis, visit our notebook <a href ="https://github.com/micahvandersteen/project-3-team-ifrit/blob/master/Notebooks/NLTK.ipynb">here.</a> </p>
+  </div>
+
+  <!-- Golden Cross Section -->    
+  <div class="w3-container w3-padding-32" id="GoldenCross">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Benchmarking: Golden Cross</h3>
+
+    <p>A common strategy in trading is to track a short term moving average (in this example, 50-day simple moving average) and a long term moving average (in this example, 200-day simple moving average). When these averages cross, many technical traders see these points in the market as signals to buy or sell a security. The below interactive visual allows you to check out how these strategies would have faired on the Dow Jones Industrial average, and all the individual stocks that make up the DJIA. This strategy shows green marks for signals to buy (50 day moving average moves above 200 day), and shows red marks for signals to sell (200 day moving average moves above 200 day). Check it out yourself to see how this basic strategy works fairly well over time! </p>
+
+      <select id="symbolselect">
+      </select>
+      <div id="crossAnalysis"></div>        
+</div>
+
     <!-- Regression Section -->
     
     <div class="w3-container w3-padding-32" id="Regression">
@@ -257,60 +312,7 @@
           " target="_blank">here</a></p>
     </div>
 
-    <!-- NLP Section -->
-    <div class="w3-container w3-padding-32" id="NLP">
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NLP: Topic Modeling</h3>
-        <h4>Latent Dirichlet allocation (LDA)</h4>
-        <p><a href="https://en.wikipedia.org/wiki/Latent_Dirichlet_allocation">Latent Dirichlet allocation</a> is a way to discover higher-level topics out of individual words present in any set of document (in our case, news headlines). You can use LDA to get a sense of the overall themes in a set of documents.</p>
-        <p>LDA is an unsupervised machine learning model that works by analyzing two things: a distribution of topics in a document, and a distribution of words in a topic. The "topics" it finds aren't specific words (e.g., "This headline is about 'war'") but instead conceptually similar groups of words that together make up a theme (e.g., "This headline is similar to the words 'war', 'crisis', 'iran'...").</p>
-        <p>Once you've created your LDA model, you can feed in a document and the model will score the overall relevancy of your document against the main x topics found in your overall corpus. In other words, it will tell you which of the main topics found in the overall corpus are also found in your document, and to what extent.</p>
-        <p>LDA is a popular topic modeling choice among NLP professionals. However, we found that it did not create topics as accurate and coherent as NMF, possibly due to the fact that we were working with short text.</p>
-        <p>Example LDA topic groupings:</p>
-        <code>
-          Topic: 0 || president time force north protest<br/>
-          Topic: 1 || russian russia force president military <br/>
-          Topic: 2 || russia japan korea president country
-        </code>
-        <p><a href="./Notebooks/LDA.ipynb">Learn more about the LDA model.</a></p>
-
-        <h4>Non-negative Matrix Factorization (NMF)</h4>
-        <p>Non-negative Matrix Factorization is a mathematical technique that when applied to documents can take data with many features (e.g. 1000s of topics) and convert them into a smaller set of topics. It is similar to LDA in that it is a way to discover higher-level topics out of individual words present in any set of document (in our case, news headlines). You can use NMF to get a sense of the overall themes in a set of documents.</p>
-        <p>NMF is an unsupervised machine learning model that works by taking your matrix A of documents x words (e.g. 50 documents and 5000 words) and returning topics (W) and weights/coefficients (H) for the topics.</p>
-        <p>As Rob Salgado explains in his <a href="https://towardsdatascience.com/topic-modeling-articles-with-nmf-8c6b2a227a45">excellent article on NMF</a>, "NMF will modify the initial values of W and H so that the product approaches A until either the approximation error converges or the max iterations are reached."</p>
-        <p>Like LDA, the "topics" that NMF finds aren't specific words but instead conceptually similar groups of words that together make up a theme.</p>
-        <p>In our analysis, we found that NMF created more intuitive and coherent topic groupings.</p>
-        <p>Example NMF topic groupings:</p>
-        <code>
-          Topic: 0 || police iran kill 	people afghanistan <br/>
-          Topic: 1 || gaza israel israeli hamas palestinians <br/>
-          Topic: 2 || isis islamic state islamic ebola state
-        </code>
-        <p><a href="./Notebooks/NMF.ipynb">Learn more about the NMF model.</a></p>
-
-        <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">NLP: Sentiment Analysis</h3>
-        <p><a href="https://en.wikipedia.org/wiki/Sentiment_analysis">Sentiment Analysis</a> is a Natural Language Processing (NLP) study of opinions, sentiments and emotions expressed in various forms of text. We can use Sentiment analysis to get an overall feel of a diner’s restaurant review, comments on an Instagram post, or in our case: news headlines.</p>
-        <p>Sentiment Analysis models search for  words that might define the overall positivity/negativity of a text, like the words “good” , “bad” , “perfect” , “dismal”. NLTK uses this “bag of words” approach while also taking into account intensifier words like “really” or “very” when calculating a sentiment score.</p>
-        <h4>Natural Language Toolkit (NLTK)</h4>
-        <p><a href="https://en.wikipedia.org/wiki/Natural_Language_Toolkit">NLTK</a> is a suite of Natural Language Processing libraries that uses Python to perform symbolic and statistical NLP in English. </p>
-        <p>NLTK includes a pretrained sentiment model VADER (Valence Aware Dictionary and sEntiment Reasoner). Vader is able to communicate if a text blob is negative or positive and also how strongly the document is skewed. VADER can be directly applied to a dataset (such as news headlines) and will automatically return a sentiment score of 1 to -1 (1 being the most postitive and -1 the most negative).</p>
-        <p>In our analysis, we found that news headlines tended to be skewed negatively, which many not come as a surprise:</p>
-        <div class='tableauPlaceholder' id='viz1590165483377' style='position: relative'><noscript><a href='#'><img alt=' ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SentimentAnalysis_15901654119190&#47;AverageDailySentiment&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz'  style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='embed_code_version' value='3' /> <param name='site_root' value='' /><param name='name' value='SentimentAnalysis_15901654119190&#47;AverageDailySentiment' /><param name='tabs' value='no' /><param name='toolbar' value='yes' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;Se&#47;SentimentAnalysis_15901654119190&#47;AverageDailySentiment&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='filter' value='publish=yes' /></object></div>                <script type='text/javascript'>                    var divElement = document.getElementById('viz1590165483377');                    var vizElement = divElement.getElementsByTagName('object')[0];                    vizElement.style.width='100%';vizElement.style.height=(divElement.offsetWidth*0.50)+'px';                    var scriptElement = document.createElement('script');                    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';                    vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
-        <h4>Additional Sentiment Models</h4>
-        <p>We also compared the NLTK VADER model against Flair's 'fast-sentiment' model to obeserve how different models would score the headlines.</p>
-        <p><a href="https://github.com/flairNLP/flair">Flair</a> is an additional NLP and sentiment analysis tool that uses a character-level Long-Short Term Memory (LSTM) neural network. LSTMs which takes the sequence of words into account, which might be preferable to NLTK's bag of words approach. Flair has also learned to account for negations like ("I love dogs") vs. ("I do not love dogs"). Flair can also predict typos which is a huge advantage in analysing social media text.</p>
-        <p>Here's how the models performed in scoring two sample headlines:</p>
-        <h4><u>NLTK:</u></h4>
-        <img src="./Images/NLTK_China.png" alt="NLTK" style="width:100%">
-        <hr>
-        <img src="./Images/NLTK_sk.png" alt="NLTK" style="width:70%">
-        <h4><u>Flair:</u></h4>
-        <img src="./Images/Flair_China.png" alt="Flair" style="width:100%">
-        <hr>
-        <img src="./Images/Flair_sk.png" alt="Flair" style="width:100%">
-        <p>While both models scored the South Korean headline negatively, Flair also scored the Chinese news headline negatively, while NLTK scored it more postively. It would be interesting to explore both of these models more fully in the future and see which one is more accurate in scoring news headlines. </p>
-        <p>To learn more about our sentiment analysis, visit our notebook <a href ="https://github.com/micahvandersteen/project-3-team-ifrit/blob/master/Notebooks/NLTK.ipynb">here.</a> </p>
-      </div>
-
+    
       <!-- Neural Networks Section -->
 
   <div class="w3-container w3-padding-32" id="Neural Networks">
