@@ -165,7 +165,7 @@
           The Dow Jones Industrial Average data in our dataset ranges from late 2008 to mid 2016. 
           From 2009-2015, complete weekday DJIA closing price data was collected for all years except 2012. 
         </p>
-        <p>The dataset we created to further test our models using more recent market numbers and news headlines followed the NASDAQ Composite Index from April 20, 2020 through May 15, 2020 and used the top twenty-five headlines listed in the United States according to News API. The NASDAQ information was obtained through the Quandl API. Both of the aforementioned API sources are updated daily, and were chosen for this reseaon among others.</p>
+        <p>The dataset we created to further test our models using more recent market numbers and news headlines followed the NASDAQ Composite Index from April 20, 2020 through May 15, 2020 and used the top twenty-five headlines listed in the United States according to News API. The NASDAQ information was obtained through the Quandl API. Both of the aforementioned API sources are updated daily, and were chosen for this reason among others.</p>
         
       <p>
         Credits: 
@@ -212,7 +212,7 @@
       <p>In extending the analysis to bigrams (two co-occuring words) and trigrams (three co-occuring words), we see more specific topics begin to appear ('Julian Assange', 'Hong Kong', 'Islamic State', 'Trans Pacific Partnership', 'Chancellor Angela Merkel').</p>
     
 
-            <center><img src="../Images/exploratory_popular_words.png" alt="exploratory_popular_words" style="width:50%"></center>
+            <center><img src="./Images/exploratory_popular_words.png" alt="exploratory_popular_words" style="width:50%"></center>
 
       <!-- <img src='./Images/exploratory_popular_words.png'> -->
       
@@ -239,19 +239,19 @@
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Benchmarking: Support Vector Regressions</h3>
         <p>In order to create a baseline understanding of how stock markets change over time, we built a function that generates predictions of stock closing prices using SVM-Support Vector Regression models, and linear regression. The Linear Regression model is not a good predictor of stock prices due to the volatile nature of the market. The SVR-Radial Basis Function (SVR-RBF) is actually a fairly good predictor of price movement. See images below on a couple of examples using the stocks Tesla and Pfizer. The function is set up so one can pass in a variable that contains a list of stock symbols (see code <a href="https://github.com/micahvandersteen/project-3-team-ifrit/blob/master/Notebooks/SVM-SVR-RBF-Poly-Lin-LinReg.ipynb" target="_blank">here</a>)</p><!-- Link to notebook on github repo -->
         <h5>Tesla</h5>
-        <center><img src="../Images/SVR_Tesla.png" style="width:50%"></center>
+        <center><img src="./Images/SVR_Tesla.png" style="width:50%"></center>
         <h5>Pfizer</h5>
-        <center><img src="../Images/SVR_Pfizer.png" style="width:50%"></center>
+        <center><img src="./Images/SVR_Pfizer.png" style="width:50%"></center>
         
         <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Logistic Regressions</h3>
         
         <p>Using results from LDA models and NMF natural language processing models, we wanted to test to see if a logistic regression would be able to predict if the stock market was going up or down. For this analysis we were not looking to predict exact prices, but rather just direction of the market. We ran several logistic regression models bringing in different "scores" of the headline topics from the headline dataset. Using the LDA scores, we were able to predict the direction of the market 267 days correctly, and 230 days incorrectly.</p>
         
-        <center><img src="../Images/LDA_LogisticRegressionResults.png" style="width:50%"></center>
+        <center><img src="./Images/LDA_LogisticRegressionResults.png" style="width:50%"></center>
         
         <p>Using sentiment anlysis results from the NLTK analysis, against a logistic regression we were able to predict daily market direction 298 times correctly vs 199 incorrectly. This was our best performing logistic regression model. </p>
         
-        <center><img src="../Images/Sentiment_Winner.png" style="width:50%"></center>
+        <center><img src="./Images/Sentiment_Winner.png" style="width:50%"></center>
         
         <p>See logistic regression code <a href="https://github.com/micahvandersteen/project-3-team-ifrit/blob/master/Notebooks/LogisticRegressionOnLDA_SentimentAnalysis.ipynb
           " target="_blank">here</a></p>
@@ -300,13 +300,13 @@
         <p><a href="https://github.com/flairNLP/flair">Flair</a> is an additional NLP and sentiment analysis tool that uses a character-level Long-Short Term Memory (LSTM) neural network. LSTMs which takes the sequence of words into account, which might be preferable to NLTK's bag of words approach. Flair has also learned to account for negations like ("I love dogs") vs. ("I do not love dogs"). Flair can also predict typos which is a huge advantage in analysing social media text.</p>
         <p>Here's how the models performed in scoring two sample headlines:</p>
         <h4><u>NLTK:</u></h4>
-        <img src="../Images/NLTK_China.png" alt="NLTK" style="width:100%">
+        <img src="./Images/NLTK_China.png" alt="NLTK" style="width:100%">
         <hr>
-        <img src="../Images/NLTK_sk.png" alt="NLTK" style="width:70%">
+        <img src="./Images/NLTK_sk.png" alt="NLTK" style="width:70%">
         <h4><u>Flair:</u></h4>
-        <img src="../Images/Flair_China.png" alt="Flair" style="width:100%">
+        <img src="./Images/Flair_China.png" alt="Flair" style="width:100%">
         <hr>
-        <img src="../Images/Flair_sk.png" alt="Flair" style="width:100%">
+        <img src="./Images/Flair_sk.png" alt="Flair" style="width:100%">
         <p>While both models scored the South Korean headline negatively, Flair also scored the Chinese news headline negatively, while NLTK scored it more postively. It would be interesting to explore both of these models more fully in the future and see which one is more accurate in scoring news headlines. </p>
         <p>To learn more about our sentiment analysis, visit our notebook <a href ="https://github.com/micahvandersteen/project-3-team-ifrit/blob/master/Notebooks/NLTK.ipynb">here.</a> </p>
       </div>
@@ -323,14 +323,14 @@
 
     <div class="w3-col l6 m6 w3-margin-bottom">
       <div class="w3-display-container">
-        <img src="../Images/LSTM_One_Feature_0.png" alt="LSTM_One_Feature_0" style="width:100%">        
+        <img src="./Images/LSTM_One_Feature_0.png" alt="LSTM_One_Feature_0" style="width:100%">        
       </div>
       <p>Here, a model that makes use of an LSTM network, is utilized to forecast historical stock price data from the Dow Jones Industrial Average (DJIA).  This model utilizes a single feature, the opening prices.</p>
     </div>
   
     <div class="w3-col l6 m6 w3-margin-bottom">
       <div class="w3-display-container">
-        <img src="../Images/LSTM_One_Feature_1.png" alt="LSTM_One_Feature_1" style="width:100%">
+        <img src="./Images/LSTM_One_Feature_1.png" alt="LSTM_One_Feature_1" style="width:100%">
       </div>    
     </div>
 
@@ -338,14 +338,14 @@
 
   <div class="w3-col l6 m6 w3-margin-bottom">
     <div class="w3-display-container">
-      <img src="../Images/LSTM_Multi_Feature_0.png" alt="LSTM_Multi_Feature_0" style="width:100%">
+      <img src="./Images/LSTM_Multi_Feature_0.png" alt="LSTM_Multi_Feature_0" style="width:100%">
     </div>
     <p>This model is updated to make its prediction with more features.  Now the model has access to open/close prices, high and low points, as well as things like volume traded.  With more features, the prediction becomes closer to resembling the real data.</p>
   </div>
 
   <div class="w3-col l6 m6 w3-margin-bottom">
     <div class="w3-display-container">
-      <img src="../Images/LSTM_Multi_Feature_1.png" alt="LSTM_Multi_Feature_1" style="width:100%">
+      <img src="./Images/LSTM_Multi_Feature_1.png" alt="LSTM_Multi_Feature_1" style="width:100%">
     </div>
   </div>
 
@@ -353,7 +353,7 @@
 
     <div class="w3-col l6 m6 w3-margin-bottom">
       <div class="w3-display-container">
-        <img src="../Images/LSTM_w_Topic_0.png" alt="LSTM_w_Topic_0" style="width:100%">
+        <img src="./Images/LSTM_w_Topic_0.png" alt="LSTM_w_Topic_0" style="width:100%">
       </div>
       <p>The model is now fed topic data that was generated from the NLP analysis previously discussed.  Once again, the model seems to become more accurate with the added information.</p>
       <p><a href="https://github.com/micahvandersteen/project-3-team-ifrit/blob/master/Notebooks/NN_Stock/DJIA_NN.ipynb">Jupyter Notebook</a></p>
@@ -361,7 +361,7 @@
   
     <div class="w3-col l6 m6 w3-margin-bottom">
       <div class="w3-display-container">
-        <img src="../Images/LSTM_w_Topic_1.png" alt="LSTM_w_Topic_0" style="width:100%">
+        <img src="./Images/LSTM_w_Topic_1.png" alt="LSTM_w_Topic_0" style="width:100%">
       </div>
     </div>
 
