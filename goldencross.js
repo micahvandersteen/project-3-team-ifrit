@@ -1,4 +1,4 @@
-d3.csv("../Data/DowStocksandDJIA_Data.csv").then(function(data) {
+d3.csv("Data/DowStocksandDJIA_Data.csv").then(function(data) {
     console.log(data);
     var selector = [];
     for (i=0; i < data.length; i++) {
