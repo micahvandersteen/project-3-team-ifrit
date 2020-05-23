@@ -6,6 +6,7 @@ Our analysis found:
 * The stock market is too unpredictable to say that headlines can reliably predict market gains/losses. 
 * Of the analysis techniques attempted, sentiment analysis came closest to providing signals for future stock market change over time.
 * Of the topic modelling approaches used, Latent Dirichlet Allocation (LDA) provided better data for logistic regression analysis than Non-negative Matrix Factorization (NMF)...but both ultimately performed very poorly when attempting to predict stock market change.
+* Topic models fitted to fast-changing data like news headlines become outdated quickly, and thus data pipelines should ensure that models are regularly being refitted.
 
 ## Built with
 - [pandas](https://pandas.pydata.org/)
@@ -20,7 +21,8 @@ Our analysis found:
 This analysis follows a specific workflow:
 ```
 sentiment analysis and topic modeling on news headlines -> enhance existing data -> 
-run regression and neural network models using headline topics and sentiments plus market gains/losses to find relationships
+run regression and neural network models using headline topics and sentiments plus 
+market gains/losses to find relationships
 ```
 You'll want to explore the analysis notebooks in this general order:
 1. Stock and news headline descriptive analysis
@@ -28,7 +30,7 @@ You'll want to explore the analysis notebooks in this general order:
 3. LDA / NMF (topic modeling) 
 4. Logistic regression / recurrent neural networks
 
-Notebooks containing Golden Cross and SVM analyses were used to create performance benchmarks for market prediction techniques.
+Notebooks containing Golden Cross and SVM analyses were used to help us understand performance benchmarks for market prediction techniques.
 
 ## Installation and use
 ### Download the repository
